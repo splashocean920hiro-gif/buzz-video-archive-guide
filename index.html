@@ -652,5 +652,31 @@ function copyText(btn, text) {
 }
 </script>
 
+
+<!-- 埋め込み(iframe)時に親ページへ自分の高さを通知し、内部スクロールを防ぐ -->
+<script>
+(function () {
+    if (window.parent === window) return; // 直接開いた時は何もしない
+    var last = 0;
+    function send() {
+        var h = Math.max(
+            document.documentElement.scrollHeight,
+            document.body ? document.body.scrollHeight : 0
+        );
+        if (Math.abs(h - last) < 2) return;
+        last = h;
+        window.parent.postMessage({ type: 'buzzGuideHeight', height: h }, '*');
+    }
+    window.addEventListener('load', send);
+    window.addEventListener('resize', send);
+    document.addEventListener('DOMContentLoaded', send);
+    if (window.ResizeObserver) {
+        new ResizeObserver(send).observe(document.documentElement);
+    }
+    setInterval(send, 1000);
+    send();
+})();
+</script>
+
 </body>
 </html>
