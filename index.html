@@ -65,6 +65,7 @@ header p { font-size: 17px; color: #ffe6d4; margin-top: 14px; max-width: 520px; 
 .feature-card p { font-size:15.5px; color:#6a4a30; }
 .feature-card.with-img { flex-direction:column; align-items:stretch; }
 .feature-card .fc-head { display:flex; gap:14px; align-items:flex-start; }
+.feature-card .fc-head > div { min-width:0; flex:1; }
 .feature-card .fc-img { width:93%; max-width:460px; height:auto; border-radius:10px; border:1.5px solid #e8dccb; margin:12px auto 0; display:block; }
 .img-card {
     background:#fff; border:2px solid #e8dccb; border-radius:14px;
@@ -177,6 +178,7 @@ header p { font-size: 17px; color: #ffe6d4; margin-top: 14px; max-width: 520px; 
 .mock-btn-row { display:flex; gap:8px; flex-wrap:wrap; }
 .mock-btn-row .mb {
     padding:9px 12px; border-radius:8px; font-size:13px; font-weight:700; border:1.5px solid #ccc; color:#555;
+    word-break:normal; min-width:0;
 }
 .mock-btn-row .mb.highlight { border-color:#4a90d9; color:#2a5a8a; background:#e8f0fb; outline:3px solid #ffb84a; outline-offset:2px; }
 
@@ -200,7 +202,7 @@ header p { font-size: 17px; color: #ffe6d4; margin-top: 14px; max-width: 520px; 
 
 /* copy box */
 .copy-box { display:flex; gap:8px; align-items:center; background:#f4f4f4; border:1.5px solid #ddd; border-radius:10px; padding:10px 12px; margin-top:6px; }
-.copy-box code { flex:1; font-size:15px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color:#2a1a10; }
+.copy-box code { flex:1; min-width:0; word-break:break-all; font-size:15px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color:#2a1a10; }
 
 .mini-note {
     margin-top:12px; background:#fdf0e4; border:2px solid #e8ccb0; border-radius:12px;
@@ -234,6 +236,7 @@ details {
 summary {
     cursor:pointer; padding:16px 0; font-size:16px; font-weight:700;
     list-style:none; display:flex; justify-content:space-between; align-items:center; gap:10px;
+    word-break:normal; min-width:0;
 }
 summary::-webkit-details-marker { display:none; }
 summary::after { content:'+'; color:#c4714a; font-size:22px; font-weight:400; flex-shrink:0; }
@@ -245,6 +248,8 @@ footer { text-align:center; margin-top:50px; font-size:13px; color:#c4a882; }
 @media (max-width: 480px) {
     header h1 { font-size:22px; }
     .flow-step-head h3 { font-size:17px; }
+    .bm-url { font-size:11.5px; padding:6px 8px; }
+    .bm-bar { gap:8px; padding:10px 8px; }
 }
 </style>
 </head>
